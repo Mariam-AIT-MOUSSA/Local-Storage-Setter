@@ -19,8 +19,6 @@ export default function SettingInLocalStorage() {
           />
         </div>
 
-
-
         <div className="mb-4">
           <input
             type="text"
