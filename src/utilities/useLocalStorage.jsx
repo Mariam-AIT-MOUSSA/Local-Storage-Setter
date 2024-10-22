@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-const storageEvent = new Event('localStorageUpdate');
+const updateEvent = new Event('localStorageUpdate');
 
-const useLocalStorage = (key, initialValue) => {
+const useLocalStorage = (key, initialValue, remove = undefined) => {
   const [value, setValue] = useState(() => {
     const storedValue = localStorage.getItem(key);
     return storedValue ? JSON.parse(storedValue) : initialValue;
@@ -28,7 +28,7 @@ const useLocalStorage = (key, initialValue) => {
   useEffect(() => {
     if (value !== undefined) {
       localStorage.setItem(key, JSON.stringify(value));
-      window.dispatchEvent(storageEvent);
+      window.dispatchEvent(updateEvent);
     }
   }, [key, value]);
 
