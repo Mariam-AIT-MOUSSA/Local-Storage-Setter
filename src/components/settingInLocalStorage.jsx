@@ -1,4 +1,3 @@
-import { useState } from "react"
 import useLocalStorage from "../utilities/useLocalStorage";
 
 export default function SettingInLocalStorage() {
